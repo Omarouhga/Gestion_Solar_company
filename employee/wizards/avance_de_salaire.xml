@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data >
+			<record id="avancement_salaire" model="ir.ui.view">
+			<field name="name">gsc.avance.wizard.form</field>
+			<field name="model">gsc.avance.wizard</field>
+			<field name="arch" type="xml">
+					<form string="Charger solde">
+							<group>
+								<field name="avancement"/>
+							</group>
+							<footer>
+								<button id="avancement"
+										name="avancement_salaire" 
+										string="Avancement"
+										class="btn-primary"
+										type="object"  />
+								<button string="Annuler" 
+										class="btn-secondary"
+										special="cancel"  />
+								
+							</footer>
+							
+					</form>
+			</field>
+			</record>
+			<record id="avancement_salaire_actw" model="ir.actions.act_window">
+				<field name="name">Entrer montant</field>
+				<field name="type">ir.actions.act_window</field>
+				<field name="res_model">gsc.avance.wizard</field>
+				<field name="view_mode">form</field>
+				<field name="view_id" ref="avancement_salaire"/>
+			    <field name="target">new</field>
+				
+			</record>	
+	</data>
+</odoo>

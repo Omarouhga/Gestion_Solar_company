@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+		<data>
+				<record id="gsc_employee_form" model="ir.ui.view">
+					<field name="name">hr.employee.form</field>
+					<field name="model">hr.employee</field>
+                	<field name="inherit_id" ref="hr.view_employee_form"></field>
+					<field name="arch" type="xml">
+							<xpath expr="//field[@name='image_1920']" position="after">			
+								<group>
+									<h1 class="d-flex">
+									<group >
+									
+										<field name="name" />
+									</group></h1>
+									<group>
+									
+									</group>
+								</group>
+								<group>
+
+									<group>
+										<field name="nom" />
+										<field name="prenom" />
+										<field name="gendre" />
+									</group>
+									<bdo dir="rtl" > <group>
+										<field name="nom_ar" />
+										<field name="prenom_ar" />
+									</group></bdo>
+								</group>
+							</xpath>
+
+						
+							
+							<xpath expr="//field[@name='job_title']" position="replace">
+		
+							</xpath>
+							<xpath expr="//field[@name='mobile_phone']" position="replace">
+		
+							</xpath>
+							<xpath expr="//header" position="after">
+								<header>
+									<button name="%(avancement_salaire_actw)d" 
+										string="Avancement de Salaire" 
+										type="action"  
+										class="oe_highlight"/>							
+								</header>
+							</xpath>
+
+							<xpath expr="//page[@name='public']" position="replace">
+								<page string="Salaire">
+									<group>
+										<field name="salaire" string="Salaire" />
+									</group>
+									<group>
+										<field name="avance" string="Avance" />
+									</group>
+									<group>
+										<field name="rest_salaire" string="Rest" />
+									</group>
+									
+
+								</page>		
+									
+							</xpath>
+
+							<xpath expr="//page[@name='hr_settings']" position="attributes">
+								<attribute name="invisible">1</attribute>
+							</xpath>
+
+							<xpath expr="//field[@name='work_phone']" position="replace">
+		
+							</xpath>
+							<xpath expr="//field[@name='work_email']" position="replace">
+							
+							
+							</xpath>
+							<xpath expr="//div[@class='oe_title']" position="replace">
+							
+							
+							</xpath>
+					
+							<xpath expr="//field[@name='department_id']" position="replace">
+		
+							</xpath> 
+							<!-- <xpath expr="//field[@name='company_id']" position="replace">
+		
+							</xpath> 		 -->
+							<xpath expr="//field[@name='parent_id']" position="replace">
+		
+							</xpath>
+							<xpath expr="//field[@name='coach_id']" position="replace">
+		
+							</xpath>
+							
+							<xpath expr="//page[@name='personal_information']" position="replace">
+								<page string="Informations personelles">
+									<group>
+										<group string="Contact privé">
+											<field name="email"/>
+											<field name="tel"/>
+											<field name="adresse"/>
+										</group>
+										
+										<group string="Citoyenneté">
+											<field name="cin"/>
+											<field name="date_naiss"/>
+											<field name="Lieu_Naissance"/>
+										</group>
+										
+									</group>
+									<group>
+										<group string="Situation familiale">
+											<field name="situation_familiale"/>
+										</group>
+									</group>
+								</page>
+							</xpath>	
+					</field>
+				</record>
+				<record id="gsc_employee_kanban" model="ir.ui.view">
+					<field name="name">hr.employee.kanban</field>
+					<field name="model">hr.employee</field>
+							<field name="inherit_id" ref="hr.hr_kanban_view_employees"></field>
+							<field name="arch" type="xml">
+									
+									<xpath expr="//field[@name='name']" position="replace">
+												<group>
+											<li><field name="name"  /></li>
+												</group>
+									</xpath>
+									
+									
+									<xpath expr="//li[@class='o_text_overflow']" position="replace">
+												<group>
+												<field name="email" />
+												</group>
+									</xpath>
+									<xpath expr="//li[@class='o_force_ltr']" position="replace">
+												<group>
+												<field name="phone" />
+												</group>
+									</xpath>
+							</field>
+                </record>
+        </data>
+</odoo>
