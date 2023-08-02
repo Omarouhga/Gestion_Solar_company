@@ -11,7 +11,9 @@
     ],
     'data':[
         'views/gsc_vente_menu.xml',
-        'views/gsc_devis_view.xml'
+        'views/gsc_devis_view.xml',
+        # 'views/gsc_client_view.xml'
+
     ],
     'installable': True,
     'application': False,
