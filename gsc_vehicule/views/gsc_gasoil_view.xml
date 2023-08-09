@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+		
+		<data>
+			<record id="view_gasoil_search" model="ir.ui.view">
+				<field name="name">gsc.gasoil.search</field>
+				<field name="model">gsc.gasoil</field>
+				<field name="arch" type="xml">
+					<search>
+						<field name="voiture_id"/>
+						<field name="date_ravitaillement"/>
+						<field name="quantite_carburant"/>
+						<field name="prix_carburant"/>
+					</search>
+				</field>
+			</record>
+			
+			<record id="view_gasoil_tree" model="ir.ui.view">
+				<field name="name">gsc.gasoil.tree</field>
+				<field name="model">gsc.gasoil</field>
+				<field name="arch" type="xml">
+					<tree>
+						<field name="voiture_id"/>
+						<field name="date_ravitaillement"/>
+						<field name="quantite_carburant"/>
+						<field name="prix_carburant"/>
+						<field name="chauffeur_id"/>
+						<field name="state" />
+						
+					</tree>
+				</field>
+			</record>
+			
+			
+			<record id="view_gasoil_form" model="ir.ui.view">
+				<field name="name">gsc.gasoil.form</field>
+				<field name="model">gsc.gasoil</field>
+				<field name="arch" type="xml">
+					<form>
+						<header >
+							<button name="mark_as_paid" 
+									string="Enregistrer un paiement" 
+									states="impaye" type="object" 
+									class="oe_highlight" 
+									/>
+							<field name="state" 
+									widget="statusbar" 
+									statusbar_visible="impaye,paye" />
+						</header>
+						<sheet>
+							
+							<group>
+								<group >
+									<field name="voiture_id"/>
+									<field name="date_ravitaillement"/>
+									<field name="kilometrage"/>
+								</group>
+								<group>
+									<field name="quantite_carburant"/>
+									<field name="prix_carburant"/>
+									<field name="chauffeur_id"/>
+								</group>
+								
+								
+							</group>
+							
+						</sheet>
+					</form>
+				</field>
+			</record>
+			
+			
+			
+			<record id="gsc_gasoil_actw" model="ir.actions.act_window">
+				<field name="name">gasoil</field>
+				<field name="res_model">gsc.gasoil</field>
+				<field name="view_mode">tree,form,graph,search</field>
+				<field name="help" type="html">
+					<p class="o_view_nocontent_smiling_face">
+						Cliquer sur créer pour Enregistrer un nouveau gasoil
+					</p> 
+				</field>
+			</record>
+			
+			
+
+				
+        </data>
+</odoo>
