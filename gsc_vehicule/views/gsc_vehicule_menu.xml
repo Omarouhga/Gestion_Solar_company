@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 	<data>
-		<menuitem id="vehicule_menu_root" name ="Gestion des Véhicules" />		
-		<menuitem   id="gsc_vidange_view" 
-					name="Vidange"  
-					parent="vehicule_menu_root"
-					action="gsc_vidange_actw"  />
 
-		<menuitem   id="gsc_voiture_view" 
+		<delete model="ir.ui.menu" 
+					id="fleet.fleet_vehicle_log_contract_menu" />
+		<delete model="ir.ui.menu" 
+					id="fleet.fleet_vehicle_model_category_menu" />
+		<!-- <menuitem id="vehicule_menu_root" name ="Gestion des Véhicules" />	-->	
+	
+
+		<!--<menuitem   id="gsc_voiture_view" 
 					name="Voitures" 
 					sequence="0"   
 					parent="vehicule_menu_root"
-					action="gsc_voiture_actw"  />
+					action="gsc_voiture_actw"  />-->
 		
-		<menuitem   id="gsc_gasoil_view" 
-					name="Gasoil"  
-					parent="vehicule_menu_root"
-					action="gsc_gasoil_actw"  />
+		
 
 
-		<menuitem   id="gsc_config_view" 
+	<!-- 	<menuitem   id="gsc_config_view" 
 					name="Configuration"
 					sequence="100"  
 					parent="vehicule_menu_root"/>
@@ -41,7 +40,7 @@
 				  parent="gsc_config_view" 
 				  name="Types de services"
 				  id="vehicle_service_types_menu" 
-				  sequence="3"/>
+				  sequence="3"/> -->
 
 	<!-- <menuitem name="Fleet" id="menu_root" sequence="220" groups="fleet_group_user" web_icon="fleet,static/description/icon.png"/> -->
     <!-- <menuitem name="Configuration" parent="menu_root" id="fleet_configuration" sequence="100" /> -->

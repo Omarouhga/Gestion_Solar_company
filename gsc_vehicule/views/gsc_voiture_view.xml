@@ -2,7 +2,91 @@
 <odoo>
 		
 		<data>
-			<record id="view_voiture_form" model="ir.ui.view">
+
+
+			<record id="inherited_voiture_view_form" model="ir.ui.view">
+				<field name="name">inherited.fleet.vehicle.form</field>
+				<field name="model">fleet.vehicle</field>
+				<field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+				<field name="arch" type="xml">
+					<!-- find field description and add the field
+						 new_field after it -->
+					<xpath expr="//group[@col='2']" position="replace">
+						<field name="active" invisible="1"/>
+						<field name="vehicle_type" invisible="1"/>
+					</xpath>
+					<xpath expr="//button[@icon='fa-book']" position="replace">
+						
+					</xpath>
+					<xpath expr="//button[@name='action_accept_driver_change']" position="replace">
+					  
+					</xpath>
+					<xpath expr="//notebook" position="replace">
+						<notebook>
+							
+					  <page string="Modèle">
+                            <group>
+                                <group string="Modèle">
+                                    <field name="model_year" modifiers="{}"/>
+                                    <field name="transmission" modifiers="{}"/>
+                                    <field name="color" modifiers="{}"/>
+                                    <field name="seats" attrs="{'invisible': [('vehicle_type', '!=', 'car')]}" modifiers="{&quot;invisible&quot;: [[&quot;vehicle_type&quot;, &quot;!=&quot;, &quot;car&quot;]]}"/>
+                                    <field name="doors" attrs="{'invisible': [('vehicle_type', '!=', 'car')]}" modifiers="{&quot;invisible&quot;: [[&quot;vehicle_type&quot;, &quot;!=&quot;, &quot;car&quot;]]}"/>
+                                    <field name="trailer_hook" attrs="{'invisible': [('vehicle_type', '!=', 'car')]}" modifiers="{&quot;invisible&quot;: [[&quot;vehicle_type&quot;, &quot;!=&quot;, &quot;car&quot;]]}"/>
+                                    <field name="frame_type" attrs="{'invisible': [('vehicle_type', '!=', 'bike')]}" modifiers="{&quot;invisible&quot;: [[&quot;vehicle_type&quot;, &quot;!=&quot;, &quot;bike&quot;]]}"/>
+                                    <label for="frame_size" attrs="{'invisible': [('vehicle_type', '!=', 'bike')]}" modifiers="{&quot;invisible&quot;: [[&quot;vehicle_type&quot;, &quot;!=&quot;, &quot;bike&quot;]]}"/>
+                                    <div class="o_row" attrs="{'invisible': [('vehicle_type', '!=', 'bike')]}" modifiers="{&quot;invisible&quot;: [[&quot;vehicle_type&quot;, &quot;!=&quot;, &quot;bike&quot;]]}">
+                                        <field name="frame_size" modifiers="{}"/><span>cm</span>
+                                    </div>
+                                    <field name="electric_assistance" attrs="{'invisible': [('vehicle_type', '!=', 'bike')]}" modifiers="{&quot;invisible&quot;: [[&quot;vehicle_type&quot;, &quot;!=&quot;, &quot;bike&quot;]]}"/>
+                                </group>
+                                <group string="Moteur ">
+                                    <field name="horsepower" modifiers="{}"/>
+                                    <label for="power"/>
+                                    <div class="o_row">
+                                        <field name="power" modifiers="{}"/><span>kW</span>
+                                    </div>
+                                    <field name="fuel_type" modifiers="{}"/>
+                                    <label for="co2"/>
+                                    <div class="o_row" name="co2">
+                                        <field name="co2" modifiers="{}"/><span>g/km</span>
+                                    </div>
+                                    <field name="co2_standard" modifiers="{}"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Note">
+							<field name="description" nolabel="1" placeholder="Écrivez ici toute autre information concernant ce véhicule" modifiers="{}"/>
+                        </page>
+                    </notebook>
+					</xpath>
+					
+				</field>
+			</record>
+			<record id="inherited_voiture_view_tree" model="ir.ui.view">
+				<field name="name">inherited.fleet.vehicle.tree</field>
+				<field name="model">fleet.vehicle</field>
+				<field name="inherit_id" ref="fleet.fleet_vehicle_view_tree"/>
+				<field name="arch" type="xml">
+					<xpath expr="//field[@name='driver_id']" position="replace">
+					  
+					</xpath>
+					<xpath expr="//field[@name='future_driver_id']" position="replace">
+					  
+					</xpath>
+				</field>
+			</record>
+			<record id="inherited_odometre_view_tree" model="ir.ui.view">
+				<field name="name">inherited.fleet.odometre.tree</field>
+				<field name="model">fleet.vehicle.odometer</field>
+				<field name="inherit_id" ref="fleet.fleet_vehicle_odometer_view_tree"/>
+				<field name="arch" type="xml">
+					<xpath expr="//field[@name='driver_id']" position="replace"> 
+					</xpath>
+				</field>
+			</record>
+
+			<!-- <record id="view_voiture_form" model="ir.ui.view">
 				<field name="name">gsc.voiture.form</field>
 				<field name="model">gsc.voiture</field>
 				<field name="arch" type="xml">
@@ -27,7 +111,7 @@
 									<field name="etat_general"/>
 								</group>
 								<group>	
-									<!-- <field name="conducteur_attitre_id"/> -->
+									 <field name="conducteur_attitre_id"/> 
 									<field name="kilometrage_actuel"/>
 								</group>
 							</group>
@@ -59,7 +143,7 @@
 						Cliquer sur créer pour ajouter une nouvelle voiture
 					</p>
 				</field>
-			</record>
+			</record> -->
 			
         </data>
 </odoo>
